@@ -1,0 +1,42 @@
+# Translation file
+
+#
+# Generic
+#
+
+# Module label 'ModuleAjousPrintsName'
+ModuleAjousPrintsName = AjousPrints
+# Module description 'ModuleAjousPrintsDesc'
+ModuleAjousPrintsDesc = AjousPrints description
+
+#
+# Admin page
+#
+AjousPrintsSetup = AjousPrints setup
+Settings = Settings
+AjousPrintsSetupPage = AjousPrints setup page
+NewSection=New section
+AJOUSPRINTS_MYPARAM1 = My param 1
+AJOUSPRINTS_MYPARAM1Tooltip = My param 1 tooltip
+AJOUSPRINTS_MYPARAM2=My param 2
+AJOUSPRINTS_MYPARAM2Tooltip=My param 2 tooltip
+
+
+#
+# About page
+#
+About = About
+AjousPrintsAbout = About AjousPrints
+AjousPrintsAboutPage = AjousPrints about page
+
+#
+# Sample page
+#
+AjousPrintsArea = Home AjousPrints
+MyPageName = My page name
+
+#
+# Sample widget
+#
+MyWidget = My widget
+MyWidgetDescription = My widget description
