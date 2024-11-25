@@ -18,6 +18,8 @@ try {
     }
 
     echo $html;
+    //delete file
+    unlink($filePath);
 } catch (Exception $e) {
     http_response_code(404);
     echo "Error: " . $e->getMessage();
