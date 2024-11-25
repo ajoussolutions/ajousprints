@@ -1,96 +1,75 @@
-# AJOUSPRINTS FOR [DOLIBARR ERP & CRM](https://www.dolibarr.org)
+# AjousPrints for Dolibarr ERP & CRM
 
-## Features
+## Description
 
-Description of the module...
+AjousPrints is a Dolibarr module that enables PDF generation using Puppeteer. It allows rendering HTML templates to PDFs with full JavaScript support.
 
-<!--
-![Screenshot ajousprints](img/screenshot_ajousprints.png?raw=true "AjousPrints"){imgmd}
--->
+## Key Features
 
-Other external modules are available on [Dolistore.com](https://www.dolistore.com).
-
-## Translations
-
-Translations can be completed manually by editing files in the module directories under `langs`.
-
-<!--
-This module contains also a sample configuration for Transifex, under the hidden directory [.tx](.tx), so it is possible to manage translation using this service.
-
-For more information, see the [translator's documentation](https://wiki.dolibarr.org/index.php/Translator_documentation).
-
-There is a [Transifex project](https://transifex.com/projects/p/dolibarr-module-template) for this module.
--->
-
+- Modern PDF generation with Chrome/Puppeteer
+- Support for complex HTML/CSS/JavaScript layouts
+- Flexible template system
+- Asynchronous processing
+- Error handling and logging
+- Caching mechanism for optimized performance
 
 ## Installation
 
-Prerequisites: You must have Dolibarr ERP & CRM software installed. You can download it from [Dolistore.org](https://www.dolibarr.org).
-You can also get a ready-to-use instance in the cloud from https://saas.dolibarr.org
+### Prerequisites
 
+- Dolibarr ERP & CRM >= 16.0
+- Node.js >= 14.0
+- Puppeteer
+- PHP >= 7.4
 
-### From the ZIP file and GUI interface
+### Installation Steps
 
-If the module is a ready-to-deploy zip file, so with a name `module_xxx-version.zip` (e.g., when downloading it from a marketplace like [Dolistore](https://www.dolistore.com)),
-go to menu `Home> Setup> Modules> Deploy external module` and upload the zip file.
-
-Note: If this screen tells you that there is no "custom" directory, check that your setup is correct:
-
-<!--
-
-- In your Dolibarr installation directory, edit the `htdocs/conf/conf.php` file and check that following lines are not commented:
-
-    ```php
-    //$dolibarr_main_url_root_alt ...
-    //$dolibarr_main_document_root_alt ...
-    ```
-
-- Uncomment them if necessary (delete the leading `//`) and assign the proper value according to your Dolibarr installation
-
-    For example :
-
-    - UNIX:
-        ```php
-        $dolibarr_main_url_root_alt = '/custom';
-        $dolibarr_main_document_root_alt = '/var/www/Dolibarr/htdocs/custom';
-        ```
-
-    - Windows:
-        ```php
-        $dolibarr_main_url_root_alt = '/custom';
-        $dolibarr_main_document_root_alt = 'C:/My Web Sites/Dolibarr/htdocs/custom';
-        ```
--->
-
-<!--
-
-### From a GIT repository
-
-Clone the repository in `$dolibarr_main_document_root_alt/ajousprints`
-
-```shell
-cd ....../custom
-git clone git@github.com:gitlogin/ajousprints.git ajousprints
+1. Download module as ZIP
+2. Install in Dolibarr under "Home > Setup > Module"
+3. Install Node.js dependencies:
+```bash
+cd custom/ajousprints
+npm install
 ```
 
--->
+### Configuration
 
-### Final steps
+1. Navigate to module setup in Dolibarr
+2. Configure Puppeteer path
+3. Set template directory
+4. Adjust cache settings (optional)
 
-Using your browser:
+## Usage
 
-  - Log into Dolibarr as a super-administrator
-  - Go to "Setup"> "Modules"
-  - You should now be able to find and enable the module
+### Generate PDF
+```php
+require_once DOL_DOCUMENT_ROOT.'/custom/ajousprints/class/puppeteerinterface.class.php';
 
+$generator = new PuppeteerInterface();
+$pdf = $generator->generatePDF($html, $options);
+```
 
+### Use Template
+```php
+$template = new AjousPrintsTemplate('invoice');
+$pdf = $template->render([
+    'company' => $company,
+    'invoice' => $invoice
+]);
+```
 
-## Licenses
+## Development
 
-### Main code
+- Templates are located in `/templates`
+- Puppeteer scripts in `/scripts` 
+- PHP classes in `/class`
 
-GPLv3 or (at your option) any later version. See file COPYING for more information.
+## License
 
-### Documentation
+GPLv3 or later
 
-All texts and readme's are licensed under [GFDL](https://www.gnu.org/licenses/fdl-1.3.en.html).
+## Support
+
+- Issues on GitHub
+- Forum: [Dolibarr Forum](https://www.dolibarr.org/forum)
+- Email: support@example.com
