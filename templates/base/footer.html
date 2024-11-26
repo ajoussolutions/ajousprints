@@ -1,11 +1,24 @@
 <script>
+    var globalVar = 'notReady'
+
     document.addEventListener('DOMContentLoaded', function() {
-        //handlebars render
-        const template = document.querySelector('template');
+        render().then(()=>{
+            try {
+                JsBarcode(".barcode").init();
+                globalVar = 'ready';
+            } catch(e) {
+                console.error('Barcode error:', e);
+                // Still mark as ready even if barcode fails
+                document.body.innerHTML = 'Barcode error: ' + e;
+                globalVar = 'ready';
+            }
+        });
+    });
+    async function render(){
+        const template = document.querySelector('body');
         const data = {data};
         const html = Handlebars.compile(template.innerHTML)(data);
         document.body.innerHTML = html;
-        JsBarcode(".barcode").init();
-    });
+    }
 </script>
 </html>

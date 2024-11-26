@@ -1,8 +1,10 @@
-<template>
-    <svg class="barcode"
-    jsbarcode-format="upc"
-    jsbarcode-value="123456789012"
-    jsbarcode-textmargin="0"
-    jsbarcode-fontoptions="bold">
-  </svg>
-</template>
+<body>
+    <style>
+        body {
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+{{product.ref}}
+<svg class="barcode" jsbarcode-format="auto" jsbarcode-value="{{product.ref}}" jsbarcode-textmargin="0" jsbarcode-height="40" jsbarcode-width="2" jsbarcode-fontsize="10"></svg>
+</body>

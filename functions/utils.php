@@ -44,7 +44,7 @@ function savePdf($data,$template,$path,$params=array()){
    $token = preparePrint($data,$template);
    //prepare post request
    $url = $gotenberg_url.'/forms/chromium/convert/url';
-   $post = array('url'=>$temp_html_url.'/'.$token.'.html');
+   $post = array('url'=>$temp_html_url.'/'.$token.'.html','waitForExpression'=>"window.globalVar == 'ready'");
    //merge params with post
    $post = array_merge($post,$params);
    //execute post request

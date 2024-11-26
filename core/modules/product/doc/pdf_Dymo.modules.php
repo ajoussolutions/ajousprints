@@ -76,7 +76,7 @@ class pdf_Dymo extends CommonDocGenerator
         $data=new stdClass();
         $data->product=$object;
         $path = $conf->product->multidir_output[$object->entity].'/'.$object->ref.'/'.$object->ref.'.pdf';
-        $result = savePdf($data,'dymo',$path);
+        $result = savePdf($data,'dymo',$path,['paperWidth'=>"80mm",'paperHeight'=>"30mm",'marginTop'=>0,'marginBottom'=>0,'marginLeft'=>0,'marginRight'=>0]);
 
 		return $result;
 	}
