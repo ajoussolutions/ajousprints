@@ -10,7 +10,7 @@ require_once DOL_DOCUMENT_ROOT.'/custom/ajousprints/functions/utils.php';
 /**
  *	Class to build documents using ODF templates generator
  */
-class pdf_Dymo extends CommonDocGenerator
+class pdf_Propale1 extends CommonDocGenerator
 {
 	/**
 	 * @var DoliDB Database handler
@@ -52,7 +52,7 @@ class pdf_Dymo extends CommonDocGenerator
 		$langs->loadLangs(array("main", "companies"));
 
 		$this->db = $db;
-		$this->name = "Dymo";
+		$this->name = "Propale1";
 		$this->description = $langs->trans("DocumentModelStandardPDF");
 
 	}
@@ -74,9 +74,9 @@ class pdf_Dymo extends CommonDocGenerator
 		// phpcs:enable
 		global $user, $langs, $conf, $mysoc, $db, $hookmanager;
         $data=new stdClass();
-        $data->product=$object;
-        $path = $conf->product->multidir_output[$object->entity].'/'.$object->ref.'/'.$object->ref.'-Dymo.pdf';
-        $result = savePdf($data,'dymo',$path,['paperWidth'=>"80mm",'paperHeight'=>"30mm",'marginTop'=>0,'marginBottom'=>0,'marginLeft'=>0,'marginRight'=>0]);
+        $data->propale=$object;
+        $path = $conf->propal->multidir_output[$object->entity].'/'.$object->ref.'/'.$object->ref.'.pdf';
+        $result = savePdf($data,'propale',$path,['paperWidth'=>"210mm",'paperHeight'=>"297mm",'marginTop'=>0,'marginBottom'=>0,'marginLeft'=>0,'marginRight'=>0]);
 
 		return $result;
 	}

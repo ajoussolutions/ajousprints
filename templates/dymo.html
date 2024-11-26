@@ -3,8 +3,10 @@
         body {
             font-size: 10pt;
             font-family: Arial, sans-serif;
+            width: 100%;
+            text-align: center;
         }
     </style>
-{{product.ref}}
-<svg class="barcode" jsbarcode-format="auto" jsbarcode-value="{{product.ref}}" jsbarcode-textmargin="0" jsbarcode-height="40" jsbarcode-width="2" jsbarcode-fontsize="10"></svg>
+{{product.ref}} - {{product.label}} <br>
+<svg class="barcode" jsbarcode-format="auto" jsbarcode-value="{{product.barcode}}" jsbarcode-textmargin="0" jsbarcode-height="40" jsbarcode-width="2" jsbarcode-fontsize="10"></svg>
 </body>
