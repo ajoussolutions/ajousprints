@@ -40,3 +40,7 @@ MyPageName = My page name
 #
 MyWidget = My widget
 MyWidgetDescription = My widget description
+AJOUSPRINTS_GOTENBERG_URL = Gotenberg URL
+AJOUSPRINTS_GOTENBERG_URLHelp = Add here the URL of the Gotenberg server. Could be https://gotenberg:3000
+AJOUSPRINTS_TEMP_HTML_URL = Temp HTML URL
+TempHTMLBaseURLHelp = Add here the base URL of the temp HTML folder. This folder must be accessible from the Gotenberg server. Could be https://yourdolibarrhost/custom/ajousprints/temp

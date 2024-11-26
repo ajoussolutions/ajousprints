@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/node/puppeteerinterface.php';
 
 try {
     $token = $_GET['token'] ?? null;

@@ -1,0 +1,11 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        //handlebars render
+        const template = document.querySelector('template');
+        const data = {data};
+        const html = Handlebars.compile(template.innerHTML)(data);
+        document.body.innerHTML = html;
+        JsBarcode(".barcode").init();
+    });
+</script>
+</html>
