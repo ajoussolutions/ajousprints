@@ -1,7 +1,7 @@
 <?php
 
 
-function preparePrint($data,$template){
+function preparePrint($data,$template,$title){
 
     //remove all files older than 1 minute in temp folder
     $files = glob(DOL_DOCUMENT_ROOT.'/custom/ajousprints/temp/*');
@@ -25,6 +25,8 @@ $templatecode = file_get_contents($templatepath);
 
 //replace {{data}} with $data as json
 $html = str_replace('{data}', json_encode($data), $templateheader.$templatecode.$templatefooter);
+//replace pagetitle
+$html = str_replace('{pagetitle}', $title, $html);
 
 //save to temp folder
 file_put_contents(DOL_DOCUMENT_ROOT.'/custom/ajousprints/temp/'.$token.'.html', $html);
@@ -38,10 +40,12 @@ return $token;
 function savePdf($data,$template,$path,$params=array()){
     //dolibarr config
     global $conf;
+    //get filename from path
+    $filename = basename($path);
     $gotenberg_url = $conf->global->AJOUSPRINTS_GOTENBERG_URL;
     $temp_html_url = $conf->global->AJOUSPRINTS_TEMP_HTML_URL;
 
-   $token = preparePrint($data,$template);
+   $token = preparePrint($data,$template,$filename);
    //prepare post request
    $url = $gotenberg_url.'/forms/chromium/convert/url';
    $post = array('url'=>$temp_html_url.'/'.$token.'.html','waitForExpression'=>"window.globalVar == 'ready'");
